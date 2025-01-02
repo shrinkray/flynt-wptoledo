@@ -475,7 +475,7 @@ flynt-component {
 }
 
 // Balance layouted text lines on mobile.
-@media (max-width: $breakpoint-tablet - 1) {
+@media (max-width: ($breakpoint-tablet - 1)) {
   [data-size="wide"],
   [data-size="full"],
   [data-text-align="center"] {
@@ -539,7 +539,10 @@ flynt-component {
 }
 
 .boxBorder {
+  background-color: #fafafa;
   border: solid 2px var(--color-border);
+  border-radius: 1.7rem;
+  padding: 0.5rem;
 }
 
 /**

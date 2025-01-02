@@ -47,19 +47,23 @@ flynt-component[name='GridImageText'] {
     }
   }
 
-  .item {
-    ul {
-      list-style-position: outside;
-      list-style-type: initial;
-      padding-inline-start: 0;
+	.item {
+		ul {
+		list-style-position: outside;
+		list-style-type: initial;
+		padding-inline-start: 0;
 
-      li {
-        margin-inline-start: 1em;
-      }
-    }
+		li {
+			margin-inline-start: 1em;
+		}
+		}
 
-    .figure-image-svg {
-      aspect-ratio: 3 / 2;
-    }
-  }
+		.figure-image-svg {
+		aspect-ratio: 3 / 2;
+		}
+		
+		.figure-image {
+			border-radius: 1.5rem
+		}
+	}
 }

@@ -19,6 +19,7 @@ add_action('Flynt/afterRegisterComponents', function (): void {
                     Components\BlockImage\getACFLayout(),
                     Components\BlockImageText\getACFLayout(),
                     Components\BlockSpacer\getACFLayout(),
+                    Components\BlockShortcode\getACFLayout(),
                     Components\BlockVideoOembed\getACFLayout(),
                     Components\BlockWysiwyg\getACFLayout(),
                     Components\GridImageText\getACFLayout(),
