@@ -13,19 +13,36 @@ const includePaths = [
   'inc',
   'lib',
   'templates',
-  'vendor',
   'index.php',
   'functions.php',
   'screenshot.png',
-  'style.css'
+  'style.css',
+  'theme.json',
+  'header.php',
+  'footer.php',
+  'sidebar.php',
+  'archive.php',
+  'single.php',
+  'page.php',
+  'search.php',
+  '404.php',
+  'comments.php',
+  'basestyle.php',
+  'README.md',
+  'LICENCE.md',
+  'CHANGELOG.md'
 ];
 
+// ExcludePatterns const is not called in the create-zip script. It may be removed.
 const excludePatterns = [
   'node_modules',
+  'vendor',
   '.git',
   '.DS_Store',
   '*.log',
+  'package.json',
   'package-lock.json',
+  'composer.json',
   'composer.lock'
 ];
 
