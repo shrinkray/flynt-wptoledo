@@ -1,5 +1,9 @@
 Components/PremiumComponents
 # /dist
+/dist
+!/dist/*.js
+!/dist/*.css
+!/dist/manifest.json
 node_modules
 npm-debug.log
 yarn-error.log
@@ -298,3 +302,4 @@ ehthumbs_vista.db
 *.lnk
 
 # End of https://www.gitignore.io/api/osx,node,linux,windows,phpstorm,composer,sublimetext,visualstudiocode
+
