@@ -61,13 +61,13 @@ npm run build:production
 
 To create a production-ready zip file of the theme, run:
 ```
-# wp-content/themes/flynt-wptoledo
+// wp-content/themes/flynt-wptoledo
 npm run zip
 ```
 
 **Optional:** To further reduce the project size by excluding development dependencies, run:
 ```
-# wp-content/themes/flynt-wptoledo
+// wp-content/themes/flynt-wptoledo
 composer install --optimize-autoloader --no-dev
 ```
 
