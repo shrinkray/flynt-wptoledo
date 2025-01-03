@@ -23,7 +23,7 @@
 3. Navigate to the theme folder and run the following command in your terminal:
 
 ```
-# wp-content/themes/flynt-wptoledo
+// wp-content/themes/flynt-wptoledo
 composer install
 npm install
 npm run build
@@ -36,7 +36,7 @@ npm run build
 To start developing run the following command:
 
 ```
-# wp-content/themes/flynt-wptoledo
+// wp-content/themes/flynt-wptoledo
 npm start
 ```
 
@@ -49,14 +49,14 @@ After developing it is required to generate compiled files in the `./dist` folde
 To generate the compiled files, run the following command:
 
 ```
-# wp-content/themes/flynt-wptoledo
+// wp-content/themes/flynt-wptoledo
 npm run build
 ```
 
 To skip the linting process (optional) and to generate the compiled files, run the command:
 
 ```
-# wp-content/themes/flynt-wptoledo
+// wp-content/themes/flynt-wptoledo
 npm run build:production
 
 To create a production-ready zip file of the theme, run:
