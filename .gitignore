@@ -9,6 +9,9 @@ npm-debug.log
 yarn-error.log
 docs/styles/**/*.css.map
 
+# Created by /scripts/create-zip.js for the theme zip file
+/builds
+
 # Created by https://www.gitignore.io/api/osx,node,linux,windows,phpstorm,composer,sublimetext,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=osx,node,linux,windows,phpstorm,composer,sublimetext,visualstudiocode
 
