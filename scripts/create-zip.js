@@ -3,7 +3,7 @@ import { mkdirp } from 'mkdirp';
 import fs from 'fs';
 import path from 'path';
 
-const themeName = 'flynt-theme';
+const themeName = 'flynt-wptoledo';
 const version = process.env.npm_package_version;
 const zipName = `${themeName}-${version}.zip`;
 
