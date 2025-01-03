@@ -26,7 +26,10 @@
     "replaceVersion": "run-s --silent checkVersion && npm i -g replace-in-files-cli && run-p --silent replaceVersion:*",
     "replaceVersion:style.css": "cross-env replace-in-files --regex='Version: (.*)' --replacement=Version:\\ $npm_package_version ./style.css",
     "replaceVersion:js": "cross-env replace-in-files --string='%%NEXT_VERSION%%' --replacement=$npm_package_version './**/*.js' '!./dist/**/*' '!./node_modules/**/*'",
-    "replaceVersion:php": "cross-env replace-in-files --string='%%NEXT_VERSION%%' --replacement=$npm_package_version './**/*.php' '!./dist/**/*' '!./node_modules/**/*' '!./vendor/**/*'"
+    "replaceVersion:php": "cross-env replace-in-files --string='%%NEXT_VERSION%%' --replacement=$npm_package_version './**/*.php' '!./dist/**/*' '!./node_modules/**/*' '!./vendor/**/*'",
+	"build:zip": "run-s build:production && node ./scripts/create-zip.js",
+    "zip": "run-s clean build:production create:zip",
+    "create:zip": "node ./scripts/create-zip.js"
   },
   "dependencies": {
     "body-scroll-lock": "^3.1.5",
@@ -55,7 +58,8 @@
     "stylelint-scss": "^6.3.0",
     "stylelint-use-logical-spec": "^5.0.1",
     "vite": "^5.2.11",
-    "vite-plugin-full-reload": "^1.1.0"
+    "vite-plugin-full-reload": "^1.1.0",
+    "zip-a-folder": "^3.1.8"
   },
   "eslintConfig": {
     "parser": "@babel/eslint-parser",
