@@ -57,7 +57,7 @@
     "stylelint-order": "^6.0.4",
     "stylelint-scss": "^6.3.0",
     "stylelint-use-logical-spec": "^5.0.1",
-    "vite": "^5.2.11",
+    "vite": "^5.2.14",
     "vite-plugin-full-reload": "^1.1.0",
     "zip-a-folder": "^3.1.8"
   },
