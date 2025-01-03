@@ -28,9 +28,7 @@ const includePaths = [
   '404.php',
   'comments.php',
   'basestyle.php',
-  'README.md',
-  'LICENCE.md',
-  'CHANGELOG.md'
+  'README.md'
 ];
 
 // ExcludePatterns const is not called in the create-zip script. It may be removed.
