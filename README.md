@@ -22,7 +22,7 @@
 `const wordpressHost = 'http://your-project.test'`
 3. Navigate to the theme folder and run the following command in your terminal:
 
-```
+```bash
 // wp-content/themes/flynt-wptoledo
 composer install
 npm install
@@ -35,7 +35,7 @@ npm run build
 
 To start developing run the following command:
 
-```
+```bash
 // wp-content/themes/flynt-wptoledo
 npm start
 ```
@@ -48,25 +48,27 @@ After developing it is required to generate compiled files in the `./dist` folde
 
 To generate the compiled files, run the following command:
 
-```
+```bash
 // wp-content/themes/flynt-wptoledo
 npm run build
 ```
 
 To skip the linting process (optional) and to generate the compiled files, run the command:
 
-```
+```bash
 // wp-content/themes/flynt-wptoledo
 npm run build:production
-
-To create a production-ready zip file of the theme, run:
 ```
+To create a production-ready zip file of the theme, run:
+
+```bash
 // wp-content/themes/flynt-wptoledo
 npm run zip
 ```
 
 **Optional:** To further reduce the project size by excluding development dependencies, run:
-```
+
+```bash
 // wp-content/themes/flynt-wptoledo
 composer install --optimize-autoloader --no-dev
 ```
@@ -111,7 +113,7 @@ Besides the main document structure (in `./templates/_document.twig`), everythin
 
 A component is a self-contained building-block. Each component contains its own layout, its ACF fields, PHP logic, scripts, and styles.
 
-```
+```bash
   ExampleComponent/
   ├── _style.scss
   ├── functions.php
@@ -338,7 +340,7 @@ add_filter('Flynt/TimberDynamicResize/relativeUploadDir', function () {
 
 If you want to use https in development, please define the following variables inside a `.env` file:
 
-```
+```haml
 VITE_DEV_SERVER_HOST=https://your-project.test
 VITE_DEV_SERVER_KEY=<path-to-ssl-certificate-key>/your-project.test_key.pem
 VITE_DEV_SERVER_CERT=<path-to-ssl-certificate-cert>/your-project.test_cert.pem
