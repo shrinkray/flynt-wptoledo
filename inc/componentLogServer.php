@@ -28,8 +28,7 @@ add_action('Flynt/afterRegisterComponents', function (): void {
 }, PHP_INT_MAX);
 
 
-function addDebugInfo(array $data, string $componentName): array
-{
+function addDebugInfo(array $data, string $componentName): array{
     $filterByComponents = [];
     if (isset($_GET['log']) && isset($_GET['component'])) {
         $filterByComponents = explode(',', $_GET['component']);
