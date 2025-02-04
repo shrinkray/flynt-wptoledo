@@ -7,41 +7,17 @@ const themeName = 'flynt-wptoledo';
 const version = process.env.npm_package_version;
 const zipName = `${themeName}-${version}.zip`;
 
-const includePaths = [
-  'Components',
-  'dist',
-  'inc',
-  'lib',
-  'templates',
-  'index.php',
-  'functions.php',
-  'screenshot.png',
-  'style.css',
-  'theme.json',
-  'header.php',
-  'footer.php',
-  'sidebar.php',
-  'archive.php',
-  'single.php',
-  'page.php',
-  'search.php',
-  '404.php',
-  'comments.php',
-  'basestyle.php',
-  'README.md'
-];
-
-// ExcludePatterns const is not called in the create-zip script. It may be removed.
 const excludePatterns = [
   'node_modules',
   'vendor',
-  '.git',
-  '.DS_Store',
   '*.log',
   'package.json',
   'package-lock.json',
   'composer.json',
-  'composer.lock'
+  'composer.lock',
+  'builds',
+  'phpcs*',
+  '.*',
 ];
 
 async function createZip() {
@@ -52,12 +28,37 @@ async function createZip() {
   const tempDir = `./builds/temp-${Date.now()}`;
   await mkdirp(tempDir);
 
-  // Copy files to temp directory
-  for (const item of includePaths) {
-    if (fs.existsSync(item)) {
-      await fs.promises.cp(item, path.join(tempDir, item), { recursive: true });
+  // Copy all files except excluded ones
+  async function copyFilesRecursively(source = '.', dest = tempDir) {
+    const entries = await fs.promises.readdir(source, { withFileTypes: true });
+    
+    for (const entry of entries) {
+      const srcPath = path.join(source, entry.name);
+      const destPath = path.join(dest, entry.name);
+      
+      // Skip if matches exclude pattern
+      if (excludePatterns.some(pattern => {
+        if (pattern.includes('*')) {
+          // Handle wildcard patterns
+          const regex = new RegExp('^' + pattern.replace(/\*/g, '.*') + '$');
+          return regex.test(entry.name);
+        }
+        return entry.name === pattern;
+      })) {
+        continue;
+      }
+
+      if (entry.isDirectory()) {
+        await mkdirp(destPath);
+        await copyFilesRecursively(srcPath, destPath);
+      } else {
+        await fs.promises.cp(srcPath, destPath);
+      }
     }
   }
+
+  // Copy files
+  await copyFilesRecursively();
 
   // Create zip file
   await zip(tempDir, `./builds/${zipName}`);
