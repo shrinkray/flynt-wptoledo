@@ -1,0 +1,19 @@
+{
+  "extends": "standard",
+  "parserOptions": {
+    "ecmaVersion": 2022
+  },
+  "rules": {
+    "space-before-function-paren": ["error", "always"],
+    "operator-linebreak": ["error", {
+      "nullishCoalescing": false
+    }],
+    "no-whitespace-before-property": "error",
+    "no-unused-expressions": ["error", {
+      "allowShortCircuit": true,
+      "allowTernary": true,
+      "allowTaggedTemplates": true
+    }],
+    "no-void": ["error", { "allowAsStatement": true }]
+  }
+}
