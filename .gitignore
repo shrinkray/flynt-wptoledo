@@ -9,6 +9,11 @@ npm-debug.log
 yarn-error.log
 docs/styles/**/*.css.map
 
+# IDE config files
+.cursorrules
+.vscode
+.idea
+
 # Created by /scripts/create-zip.js for the theme zip file
 /builds
 
