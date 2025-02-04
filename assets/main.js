@@ -4,7 +4,7 @@ import FlyntComponent from './scripts/FlyntComponent'
 import 'lazysizes'
 
 if (import.meta.env.DEV) {
-    import('@vite/client')
+  import('@vite/client')
 }
 
 import.meta.glob([
@@ -19,6 +19,6 @@ import.meta.glob([
 ])
 
 window.customElements.define(
-    'flynt-component',
-    FlyntComponent
+  'flynt-component',
+  FlyntComponent
 )
