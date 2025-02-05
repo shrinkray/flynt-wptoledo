@@ -7,17 +7,25 @@ const themeName = 'flynt-wptoledo'
 const version = process.env.npm_package_version
 const zipName = `${themeName}-${version}.zip`
 
+// Define exclude patterns - only exclude what's absolutely necessary
 const excludePatterns = [
+  '.DS_Store',
+  '.git',
+  '.github',
   'node_modules',
   'vendor',
-  '*.log',
-  'package.json',
-  'package-lock.json',
-  'composer.json',
-  'composer.lock',
   'builds',
-  'phpcs*',
-  '.*'
+  '.gitignore',
+  '.editorconfig',
+  '.eslintrc.json',
+  '.eslintignore',
+  'package-lock.json',
+  'composer.lock',
+  'README.md',
+  'CHANGELOG.md',
+  '.travis.yml',
+  '.scrutinizr.yml',
+  'axe-linter.yml'
 ]
 
 async function createZip () {
@@ -30,11 +38,14 @@ async function createZip () {
 
   // Copy all files except excluded ones
   async function copyFilesRecursively (source = '.', dest = tempDir) {
+    //console.log(`Copying from ${source} to ${dest}`)
     const entries = await fs.promises.readdir(source, { withFileTypes: true })
+    
+   // console.log(`Found ${entries.length} entries in ${source}`)
 
     for (const entry of entries) {
-      const srcPath = path.join(source, entry.name)
-      const destPath = path.join(dest, entry.name)
+      const srcPath = path.resolve(source, entry.name)
+      const destPath = path.resolve(dest, entry.name)
 
       // Skip if matches exclude pattern
       if (excludePatterns.some(pattern => {
@@ -45,14 +56,17 @@ async function createZip () {
         }
         return entry.name === pattern
       })) {
+        // console.log(`Skipping excluded file/directory: ${entry.name}`)
         continue
       }
 
       if (entry.isDirectory()) {
+        //console.log(`Creating directory: ${destPath}`)
         await mkdirp(destPath)
         await copyFilesRecursively(srcPath, destPath)
       } else {
-        await fs.promises.cp(srcPath, destPath)
+        //console.log(`Copying file: ${srcPath} -> ${destPath}`)
+        await fs.promises.cp(srcPath, destPath, { force: true })
       }
     }
   }
