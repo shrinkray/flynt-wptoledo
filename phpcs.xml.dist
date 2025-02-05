@@ -2,15 +2,28 @@
 <ruleset name="Flynt Theme PHP Coding Standards">
   <description>Coding Standards for Flynt Theme</description>
 
-  <exclude-pattern>*/node_modules/*</exclude-pattern>
-  <exclude-pattern>./vendor/*</exclude-pattern>
-  <exclude-pattern>./dist/*</exclude-pattern>
-
+  <!-- First, explicitly set which files to check -->
+  <arg name="extensions" value="php"/>
   <file>.</file>
 
-  <arg name="extensions" value="php"/>
-  <arg name="colors"/>
+  <!-- Then exclude everything that's not PHP -->
+  <exclude-pattern type="relative">^/scripts/*</exclude-pattern>
+  <exclude-pattern type="relative">^/assets/*</exclude-pattern>
+  <exclude-pattern type="relative">^/node_modules/*</exclude-pattern>
+  <exclude-pattern type="relative">^/vendor/*</exclude-pattern>
+  <exclude-pattern type="relative">^/dist/*</exclude-pattern>
+  <exclude-pattern>*.js</exclude-pattern>
+  <exclude-pattern>*.css</exclude-pattern>
+  <exclude-pattern>*.scss</exclude-pattern>
 
+  <!-- Arguments -->
+  <arg name="colors"/>
+  <arg value="s"/>
+  <arg value="n"/>
+
+  <!-- Rules -->
+  <rule ref="PSR12"/>
+  
   <!-- Commenting rules for ./lib -->
   <rule ref="Squiz.Commenting">
     <include-pattern>./lib/*</include-pattern>
@@ -27,11 +40,4 @@
 
   <!-- Use short array syntax -->
   <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
-
-  <!-- Show sniff codes in all reports -->
-  <arg value="s"/>
-  <!-- Exclude Warnings -->
-  <arg value="n"/>
-
-  <rule ref="PSR12"/>
 </ruleset>

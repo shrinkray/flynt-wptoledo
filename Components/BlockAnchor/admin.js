@@ -52,11 +52,13 @@
         navigator.clipboard.writeText($anchorLinkInput.text()).then(
           function () {
             $copyMessage.show().delay(5000).hide('fast')
-          })
+          }
+        )
           .catch(
             function () {
               alert('Oops! Something went wrong...')
-            })
+            }
+          )
       }
     }
   }

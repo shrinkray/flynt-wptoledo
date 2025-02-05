@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<ruleset name="Flynt">
+  <description>Flynt Coding Standards</description>
+
+  <!-- Scan all files in directory -->
+  <file>.</file>
+
+  <!-- How to scan -->
+    <arg value="sp"/>
+    <arg name="colors"/>
+    <arg name="basepath" value="."/>
+    <arg name="parallel" value="8"/>
+
+  <!-- Ignore non-PHP files -->
+  <exclude-pattern>*.js$</exclude-pattern>
+  <exclude-pattern>*.jsx$</exclude-pattern>
+  <exclude-pattern>*.ts$</exclude-pattern>
+  <exclude-pattern>*.tsx$</exclude-pattern>
+  <exclude-pattern>*.css$</exclude-pattern>
+  <exclude-pattern>*.scss$</exclude-pattern>
+
+  <!-- Ignore directories -->
+  <exclude-pattern>*/vendor/*</exclude-pattern>
+  <exclude-pattern>*/node_modules/*</exclude-pattern>
+  <exclude-pattern>*/dist/*</exclude-pattern>
+  <exclude-pattern>*/assets/*</exclude-pattern>
+
+  <!-- Show sniff codes in all reports -->
+  <arg value="s"/>
+  
+  <!-- Exclude Warnings -->
+  <arg value="n"/>
+
+  <!-- Use PSR12 as a base -->
+  <rule ref="PSR12"/>
+
+  <!-- Configure indentation -->
+  <rule ref="Generic.WhiteSpace.ScopeIndent">
+    <properties>
+      <property name="indent" value="4"/>
+      <property name="exact" value="false"/>
+    </properties>
+  </rule>
+
+  <!-- Use short array syntax -->
+  <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+
+  <!-- Allow . in hook names -->
+  <rule ref="PSR2.Methods.MethodDeclaration.Underscore">
+    <exclude-pattern>*/functions.php</exclude-pattern>
+  </rule>
+</ruleset> 

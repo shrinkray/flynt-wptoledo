@@ -42,10 +42,10 @@ if (window.acf) {
 
       $tooltip.insertAdjacentHTML(
         position === 'top' ? 'beforeend' : 'afterbegin',
-        `<div class="flyntComponentSearch">
-          <input type="text" placeholder="${placeholder}" class="flyntComponentSearch-field">
-          <div class="flyntComponentSearch-noResults" hidden>${noResults}</div>
-        </div>`
+                ` < div class = "flyntComponentSearch" >
+                < input type = "text" placeholder = "${placeholder}" class = "flyntComponentSearch-field" >
+                < div class = "flyntComponentSearch-noResults" hidden > ${noResults} < / div >
+                <  / div > `
       )
 
       const $searchField = $tooltip.querySelector('.flyntComponentSearch-field')

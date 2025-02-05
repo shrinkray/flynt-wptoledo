@@ -62,7 +62,7 @@ function hasScript (node) {
 
 function getScriptPath (node) {
   const componentPath = getComponentPath(node)
-  return `/Components/${componentPath}/script.js`
+  return ` / Components / ${componentPath} / script.js`
 }
 
 function getScriptImport (node) {
@@ -136,13 +136,15 @@ function getLoadingFunctionWrapper (strategyName, node) {
     },
     interaction: (x) => {
       const load = () => {
-        interactionEvents.forEach((event) =>
-          document.removeEventListener(event, load)
+        interactionEvents.forEach(
+          (event) =>
+            document.removeEventListener(event, load)
         )
         x()
       }
-      interactionEvents.forEach((event) =>
-        document.addEventListener(event, load, { once: true })
+      interactionEvents.forEach(
+        (event) =>
+          document.addEventListener(event, load, { once: true })
       )
     }
   }
