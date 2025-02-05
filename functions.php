@@ -6,6 +6,20 @@ use Flynt\Utils\FileLoader;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
+// Add this at the top of functions.php to catch parse errors
+// declare(strict_types=1);
+
+// Increase memory limit if needed
+if (function_exists('wp_raise_memory_limit')) {
+    wp_raise_memory_limit('admin');
+}
+
+// Add error handling
+set_error_handler(function($errno, $errstr, $errfile, $errline) {
+    error_log("PHP Error: [$errno] $errstr in $errfile on line $errline");
+    return false;
+});
+
 if (!defined('WP_ENV')) {
     define('WP_ENV', function_exists('wp_get_environment_type') ? wp_get_environment_type() : 'production');
 } elseif (!defined('WP_ENVIRONMENT_TYPE')) {
@@ -30,3 +44,6 @@ add_action('after_setup_theme', function (): void {
     // Translations can be filed in the /languages/ directory.
     load_theme_textdomain('flynt', get_template_directory() . '/languages');
 });
+
+// Disable XML-RPC
+add_filter('xmlrpc_enabled', '__return_false');

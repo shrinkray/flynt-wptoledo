@@ -1,4 +1,4 @@
-Components/PremiumComponents
+ Components/PremiumComponents
 # /dist
 
 !/dist/*.js
@@ -8,6 +8,8 @@ node_modules
 npm-debug.log
 yarn-error.log
 docs/styles/**/*.css.map
+
+info.php
 
 # IDE config files
 .cursorrules

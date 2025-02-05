@@ -8,7 +8,7 @@
     "checkVersion": "check-node-version --package -p",
     "start": "run-s --silent dev",
     "dev": "run-s --silent checkVersion clean serve",
-    "clean": "rimraf ./dist && mkdirp ./dist",
+    "clean": "rimraf ./dist ./builds && mkdirp ./dist",
     "serve": "vite dev",
     "watch": "vite build -w",
     "build": "run-s --silent checkVersion lint build:production",
