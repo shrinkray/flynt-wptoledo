@@ -1,6 +1,6 @@
 Components/PremiumComponents
 # /dist
-/dist
+
 !/dist/*.js
 !/dist/*.css
 !/dist/manifest.json
